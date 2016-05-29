@@ -10,13 +10,13 @@ function check_git_prompt_info() {
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [[ -z $(git_prompt_info) ]]; then
             echo "%{$fg[blue]%}detached-head%{$reset_color%}) $(git_prompt_status)
-%{$fg[yellow]%}→ "
+%{$fg[blue]%}%D{[%X]} %{$fg[yellow]%}→ "
         else
             echo "$(git_prompt_info) $(git_prompt_status)
-%{$fg_bold[cyan]%}→ "
+%{$fg[blue]%}%D{[%X]} %{$fg_bold[cyan]%}→ "
         fi
     else
-        echo "%{$fg_bold[cyan]%}→ "
+        echo "%{$fg[blue]%}%D{[%X]} %{$fg_bold[cyan]%}→ "
     fi
 }
 
@@ -35,7 +35,7 @@ ${LAMBDA}\
  $(check_git_prompt_info)\
 %{$reset_color%}'
 
-RPROMPT='$(get_right_prompt)'
+#RPROMPT='$(get_right_prompt)'
 
 # Format for git_prompt_info()
 ZSH_THEME_GIT_PROMPT_PREFIX="at %{$fg[blue]%} "
@@ -50,6 +50,7 @@ ZSH_THEME_GIT_PROMPT_DELETED="%{$fg_bold[red]%}-"
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg_bold[magenta]%}>"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[yellow]%}#"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[cyan]%}?"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg_bold[white]%}i@"
 
 # Format for git_prompt_ahead()
 ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[white]%}^"
