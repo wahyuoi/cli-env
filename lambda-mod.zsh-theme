@@ -28,6 +28,10 @@ function get_right_prompt() {
     fi
 }
 
+function get_num_stashed() {
+    echo git stash list | grep -c .
+}
+
 PROMPT='
 ${LAMBDA}\
  %{$fg_bold[$USERCOLOR]%}%n\
@@ -50,7 +54,7 @@ ZSH_THEME_GIT_PROMPT_DELETED="%{$fg_bold[red]%}-"
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg_bold[magenta]%}>"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg_bold[yellow]%}#"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[cyan]%}?"
-ZSH_THEME_GIT_PROMPT_STASHED="%{$fg_bold[white]%}i@"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg_bold[white]%}{$(get_num_stashed)}"
 
 # Format for git_prompt_ahead()
 ZSH_THEME_GIT_PROMPT_AHEAD=" %{$fg_bold[white]%}^"
