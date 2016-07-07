@@ -9,3 +9,6 @@ if [ ! -f ~/.zshrc ]; then
 fi
 cp .zshrc ~/.zshrc
 
+# VIM
+./vim/colors/molokai.sh
+cp -f vim/.vimrc ~/.vimrc
