@@ -82,3 +82,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+export TERM=xterm-256color
+
+# for FZF, use git ls-tree on git repo
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+             find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+        sed s/^..//) 2> /dev/null'
