@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# install oh-my-zsh
+sudo apt-get install zsh
+curl -L http://install.ohmyz.sh > ohmyzsh.sh
+bash ohmyzsh.sh
+rm ohmyzsh.sh
+
 # copy theme 
 cp lambda-mod.zsh-theme ~/.oh-my-zsh/themes/
 
@@ -8,6 +14,7 @@ if [ ! -f ~/.zshrc ]; then
   mv ~/.zshrc ~/.zshrc.bak
 fi
 cp .zshrc ~/.zshrc
+source ~/.zshrc
 
 # Setup Nerd Font
 mkdir -p ~/.local/share/fonts
