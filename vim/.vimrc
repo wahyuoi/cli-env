@@ -9,6 +9,11 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "refer to https://github.com/fatih/vim-go"
 Plug 'fatih/vim-go'
+"Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+Plug 'https://github.com/Shougo/neocomplete.vim'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
@@ -90,6 +95,28 @@ augroup configgroup
   autocmd BufEnter *.sh setlocal shiftwidth=2
   autocmd BufEnter *.sh setlocal softtabstop=2
 augroup END
+
+filetype plugin on
+
+"neocomplete setting
+"Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+"vim-go setting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+
 
 " references
 " - http://dougblack.io/words/a-good-vimrc.html
