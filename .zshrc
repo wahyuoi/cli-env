@@ -95,3 +95,7 @@ export FZF_DEFAULT_COMMAND='
 export GOROOT=$HOME/.software/go
 export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/workspace
+
+if [ -f ~/.diyrc ]; then
+  source ~/.diyrc;
+fi
