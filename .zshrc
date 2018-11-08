@@ -99,3 +99,7 @@ export GOPATH=$HOME/workspace
 if [ -f ~/.diyrc ]; then
   source ~/.diyrc;
 fi
+
+
+# default editor
+export EDITOR=vim
